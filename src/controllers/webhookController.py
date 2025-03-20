@@ -6,6 +6,8 @@ def handleIncoming():
   data = request.json
   # Mensaje de usuario
   message = data["message"]["text"]
+  # Chat al que pertenece el mensaje
+  chat_id = data["message"]["chat"]["id"]
 
-  handleIncomingMessage(message)
+  handleIncomingMessage(chat_id, message)
   return jsonify({"status": "success", "message": "Webhook recibido"}), 200
