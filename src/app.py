@@ -1,15 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 import ngrok
 from config import env
+from routes.webhookRoutes import webhook_bp
 
 app = Flask(__name__)
+app.register_blueprint(webhook_bp)
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    data = request.json 
-    print("Datos recibidos:", data)  
-    return jsonify({"status": "success", "message": "Webhook recibido"}), 200
-
+# Exponiendo puerto
 def set_ngrok():
     listener = ngrok.forward(5000, authtoken = env.NGROK_AUTHTOKEN)
     print(f"Ngrok configurado")
