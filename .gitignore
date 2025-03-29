@@ -215,3 +215,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,python,git
+
+# Carpeta del modelo Deepseek
+DeepSeek-R1-Distill-Qwen-1.5B/
