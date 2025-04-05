@@ -10,14 +10,14 @@ def webhookUpdates(ngrok_url):
   try:
     requests.post(url, params=params)
   except Exception as error:
-    print(f"Error en la API de Telegram: {error}")
+    print(f"Error en la conexión con la API de Telegram: {error}")
 
 # Manda mensaje de texto a un chat de Telegram
-def sendMessage(chat_id):
+def sendMessage(chat_id, respuesta):
   url = f"{env.BASE_TEL_URL}{env.TELEGRAM_KEY}/sendMessage"
-  params = {"chat_id": chat_id, "text": "Hola, te mande un mensaje"}
+  params = {"chat_id": chat_id, "text": respuesta}
 
   try:
     requests.post(url, params=params)
   except Exception as error:
-    print(f"Error en la API de Telegram: {error}")
+    print(f"Error en la API de Telegram con el envio de mensajes: {error}")
